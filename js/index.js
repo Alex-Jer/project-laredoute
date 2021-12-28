@@ -2,6 +2,7 @@ let defaultTransform = 0;
 const nextBtn = document.getElementById('next');
 const prevBtn = document.getElementById('prev');
 const searchInput = document.getElementById('search');
+const carouselItem1 = document.getElementById('carousel-item-1');
 
 const goNext = () => {
   defaultTransform -= 398;
@@ -25,4 +26,8 @@ searchInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     window.location.href = '/pages/search.html';
   }
+});
+
+carouselItem1.addEventListener('click', () => {
+  window.location.href = '/pages/search.html';
 });
