@@ -41,12 +41,29 @@ function loadScene() {
 }
 
 function addlights() {
-  const ambientLight = new THREE.AmbientLight('white');
-  const pointLight = new THREE.PointLight('white');
+  const ambientLight = new THREE.AmbientLight();
+  ambientLight.castShadow = true;
   scene.add(ambientLight);
-  pointLight.position.set(50, 50, 50);
-  pointLight.castShadow = true;
-  scene.add(pointLight);
+
+  const pointLightFront = new THREE.PointLight('white');
+  pointLightFront.position.set(0, 0, 14);
+  scene.add(pointLightFront);
+
+  const pointLightBack = new THREE.PointLight('white');
+  pointLightBack.position.set(0, 0, -14);
+  scene.add(pointLightBack);
+
+  const pointLightRight = new THREE.PointLight('white');
+  pointLightRight.position.set(28, 0, 0);
+  scene.add(pointLightRight);
+
+  const pointLightLeft = new THREE.PointLight('white');
+  pointLightLeft.position.set(-28, 0, 0);
+  scene.add(pointLightLeft);
+
+  const pointLightBelow = new THREE.PointLight('white');
+  pointLightBelow.position.set(0, -28, 0);
+  scene.add(pointLightBelow);
 }
 
 loadScene();
