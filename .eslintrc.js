@@ -14,5 +14,7 @@ module.exports = {
   plugins: ['tailwindcss'],
   rules: {
     'no-undef': 'off',
+    'no-param-reassign': 'off',
+    'no-new': 'off',
   },
 };
