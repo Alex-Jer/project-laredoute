@@ -44,6 +44,10 @@ function loadScene() {
     actionDoorLeft = mixer.clipAction(clipDoorLeft);
     actionDoorRight = mixer.clipAction(clipDoorRight);
 
+    actionBench.timeScale = -actionBench.timeScale;
+    actionDoorLeft.timeScale = -actionDoorLeft.timeScale;
+    actionDoorRight.timeScale = -actionDoorRight.timeScale;
+
     scene.traverse((objMesh) => {
       if (objMesh.isMesh) {
         objMesh.castShadow = true;
@@ -80,7 +84,15 @@ function addlights() {
 }
 
 function actionButtons() {
-  document.getElementById('animation').onclick = () => {
+  document.getElementById('toggle-animation').onclick = () => {
+    actionBench.timeScale = -actionBench.timeScale;
+    actionDoorLeft.timeScale = -actionDoorLeft.timeScale;
+    actionDoorRight.timeScale = -actionDoorRight.timeScale;
+
+    actionBench.paused = false;
+    actionDoorLeft.paused = false;
+    actionDoorRight.paused = false;
+
     actionBench.play();
     actionDoorLeft.play();
     actionDoorRight.play();
@@ -99,11 +111,3 @@ loadScene();
 addlights();
 actionButtons();
 animate();
-
-// const action = mixer.clipAction(model.animations[0]);
-// action.play();
-
-// const animation = document.getElementById('animation');
-// animation.addEventListener('click', () => {
-//   action.play();
-// });
