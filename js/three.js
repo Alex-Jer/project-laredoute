@@ -1,10 +1,15 @@
 const canvas = document.getElementById('canvas');
 const scene = new THREE.Scene();
-// const camera = new THREE.PerspectiveCamera(45, 185 / 185, 0.1, 1000);
 const camera = new THREE.PerspectiveCamera(70, 1215 / 600, 0.01, 1000);
 const renderer = new THREE.WebGLRenderer();
+const clock = new THREE.Clock();
+const mixer = new THREE.AnimationMixer(scene);
+
 new THREE.OrbitControls(camera, renderer.domElement);
-let model;
+
+let actionBench;
+let actionDoorLeft;
+let actionDoorRight;
 
 document.body.appendChild(canvas.cloneNode(true));
 scene.background = new THREE.Color(0xf3f4f6);
@@ -17,19 +22,27 @@ renderer.shadowMap.enabled = true;
 
 function animate() {
   requestAnimationFrame(animate);
+  mixer.update(clock.getDelta());
   renderer.render(scene, camera);
 }
 
 function loadScene() {
   const loader = new THREE.GLTFLoader();
   loader.load('/models/workBenchM.gltf', (gltf) => {
-    model = gltf.scene;
-    scene.add(model);
-    model.position.set(0, -3, 0);
+    scene.add(gltf.scene);
+    gltf.scene.position.set(0, -3, 0);
 
     gltf.scene.traverse((x) => {
       if (x instanceof THREE.Light) x.visible = false;
     });
+
+    const clipBench = THREE.AnimationClip.findByName(gltf.animations, 'benchExtendAction');
+    const clipDoorLeft = THREE.AnimationClip.findByName(gltf.animations, 'doorAction');
+    const clipDoorRight = THREE.AnimationClip.findByName(gltf.animations, 'door1Action');
+
+    actionBench = mixer.clipAction(clipBench);
+    actionDoorLeft = mixer.clipAction(clipDoorLeft);
+    actionDoorRight = mixer.clipAction(clipDoorRight);
 
     scene.traverse((objMesh) => {
       if (objMesh.isMesh) {
@@ -41,31 +54,56 @@ function loadScene() {
 }
 
 function addlights() {
-  const ambientLight = new THREE.AmbientLight();
-  ambientLight.castShadow = true;
+  const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
   scene.add(ambientLight);
 
-  const pointLightFront = new THREE.PointLight('white');
+  const pointLightFront = new THREE.PointLight(0xffffff, 1.5);
   pointLightFront.position.set(0, 0, 14);
   scene.add(pointLightFront);
 
-  const pointLightBack = new THREE.PointLight('white');
-  pointLightBack.position.set(0, 0, -14);
+  const pointLightBack = new THREE.PointLight(0xffffff, 1.5);
+  pointLightBack.position.set(28, 0, -28);
+  // pointLightBack.position.set(0, 0, -14);
   scene.add(pointLightBack);
 
-  const pointLightRight = new THREE.PointLight('white');
+  const pointLightRight = new THREE.PointLight(0xffffff, 1.5);
   pointLightRight.position.set(28, 0, 0);
   scene.add(pointLightRight);
 
-  const pointLightLeft = new THREE.PointLight('white');
+  const pointLightLeft = new THREE.PointLight(0xffffff, 1.5);
   pointLightLeft.position.set(-28, 0, 0);
   scene.add(pointLightLeft);
 
-  const pointLightBelow = new THREE.PointLight('white');
+  const pointLightBelow = new THREE.PointLight(0xffffff, 1.5);
   pointLightBelow.position.set(0, -28, 0);
   scene.add(pointLightBelow);
 }
 
+function actionButtons() {
+  document.getElementById('animation').onclick = () => {
+    actionBench.play();
+    actionDoorLeft.play();
+    actionDoorRight.play();
+
+    actionBench.setLoop(THREE.LoopOnce);
+    actionDoorLeft.setLoop(THREE.LoopOnce);
+    actionDoorRight.setLoop(THREE.LoopOnce);
+
+    actionBench.clampWhenFinished = true;
+    actionDoorLeft.clampWhenFinished = true;
+    actionDoorRight.clampWhenFinished = true;
+  };
+}
+
 loadScene();
 addlights();
+actionButtons();
 animate();
+
+// const action = mixer.clipAction(model.animations[0]);
+// action.play();
+
+// const animation = document.getElementById('animation');
+// animation.addEventListener('click', () => {
+//   action.play();
+// });
