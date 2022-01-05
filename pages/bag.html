@@ -8,23 +8,6 @@
     <link rel="stylesheet" href="/css/tailwind.css" />
   </head>
   <body>
-    <!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
-
     <div class="bg-white">
       <!--
     Mobile menu
@@ -80,16 +63,7 @@
                 <!-- Selected: "text-indigo-600 border-indigo-600", Not Selected: "text-gray-900 border-transparent" -->
                 <button
                   id="tabs-1-tab-1"
-                  class="
-                    flex-1
-                    px-1
-                    py-4
-                    text-base
-                    font-medium
-                    text-gray-900
-                    border-b-2 border-transparent
-                    whitespace-nowrap
-                  "
+                  class="flex-1 px-1 py-4 text-base font-medium text-gray-900 border-b-2 border-transparent whitespace-nowrap"
                   aria-controls="tabs-1-panel-1"
                   role="tab"
                   type="button"
@@ -100,16 +74,7 @@
                 <!-- Selected: "text-indigo-600 border-indigo-600", Not Selected: "text-gray-900 border-transparent" -->
                 <button
                   id="tabs-1-tab-2"
-                  class="
-                    flex-1
-                    px-1
-                    py-4
-                    text-base
-                    font-medium
-                    text-gray-900
-                    border-b-2 border-transparent
-                    whitespace-nowrap
-                  "
+                  class="flex-1 px-1 py-4 text-base font-medium text-gray-900 border-b-2 border-transparent whitespace-nowrap"
                   aria-controls="tabs-1-panel-2"
                   role="tab"
                   type="button"
@@ -447,30 +412,15 @@
                       <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
                       <button
                         type="button"
-                        class="
-                          relative
-                          z-10
-                          flex
-                          items-center
-                          pt-px
-                          -mb-px
-                          text-sm
-                          font-medium
-                          text-gray-700
-                          transition-colors
-                          duration-200
-                          ease-out
-                          border-b-2 border-transparent
-                          hover:text-gray-800
-                        "
+                        class="relative z-10 flex items-center pt-px -mb-px text-sm font-medium text-gray-700 transition-colors duration-200 ease-out border-b-2 border-transparent hover:text-gray-800"
                         aria-expanded="false"
                       >
-                        Women
+                        Moda
                       </button>
                     </div>
 
                     <!--
-                  'Women' flyout menu, show/hide based on flyout menu state.
+                  'Moda' flyout menu, show/hide based on flyout menu state.
 
                   Entering: "transition ease-out duration-200"
                     From: "opacity-0"
@@ -489,13 +439,7 @@
                             <div class="grid grid-cols-2 col-start-2 gap-x-8">
                               <div class="relative text-base group sm:text-sm">
                                 <div
-                                  class="
-                                    overflow-hidden
-                                    bg-gray-100
-                                    rounded-lg
-                                    aspect-w-1 aspect-h-1
-                                    group-hover:opacity-75
-                                  "
+                                  class="overflow-hidden bg-gray-100 rounded-lg aspect-w-1 aspect-h-1 group-hover:opacity-75"
                                 >
                                   <img
                                     src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg"
@@ -507,18 +451,12 @@
                                   <span class="absolute inset-0 z-10" aria-hidden="true"></span>
                                   New Arrivals
                                 </a>
-                                <p aria-hidden="true" class="mt-1">Shop now</p>
+                                <p aria-hidden="true" class="mt-1">Comprar agora</p>
                               </div>
 
                               <div class="relative text-base group sm:text-sm">
                                 <div
-                                  class="
-                                    overflow-hidden
-                                    bg-gray-100
-                                    rounded-lg
-                                    aspect-w-1 aspect-h-1
-                                    group-hover:opacity-75
-                                  "
+                                  class="overflow-hidden bg-gray-100 rounded-lg aspect-w-1 aspect-h-1 group-hover:opacity-75"
                                 >
                                   <img
                                     src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg"
@@ -530,12 +468,12 @@
                                   <span class="absolute inset-0 z-10" aria-hidden="true"></span>
                                   Basic Tees
                                 </a>
-                                <p aria-hidden="true" class="mt-1">Shop now</p>
+                                <p aria-hidden="true" class="mt-1">Comprar agora</p>
                               </div>
                             </div>
                             <div class="grid grid-cols-3 row-start-1 text-sm gap-y-10 gap-x-8">
                               <div>
-                                <p id="Clothing-heading" class="font-medium text-gray-900">Clothing</p>
+                                <p id="Clothing-heading" class="font-medium text-gray-900">Roupas</p>
                                 <ul
                                   role="list"
                                   aria-labelledby="Clothing-heading"
@@ -550,7 +488,7 @@
                                   </li>
 
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Pants </a>
+                                    <a href="#" class="hover:text-gray-800"> Calças </a>
                                   </li>
 
                                   <li class="flex">
@@ -566,77 +504,73 @@
                                   </li>
 
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Jackets </a>
+                                    <a href="#" class="hover:text-gray-800"> Casacos </a>
                                   </li>
 
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Activewear </a>
+                                    <a href="#" class="hover:text-gray-800"> Desporto </a>
                                   </li>
 
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Browse All </a>
-                                  </li>
-                                </ul>
-                              </div>
-
-                              <div>
-                                <p id="Accessories-heading" class="font-medium text-gray-900">Accessories</p>
-                                <ul
-                                  role="list"
-                                  aria-labelledby="Accessories-heading"
-                                  class="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                >
-                                  <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Watches </a>
-                                  </li>
-
-                                  <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Wallets </a>
-                                  </li>
-
-                                  <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Bags </a>
-                                  </li>
-
-                                  <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Sunglasses </a>
-                                  </li>
-
-                                  <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Hats </a>
-                                  </li>
-
-                                  <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Belts </a>
+                                    <a href="#" class="hover:text-gray-800"> Ver Tudo </a>
                                   </li>
                                 </ul>
                               </div>
 
                               <div>
-                                <p id="Brands-heading" class="font-medium text-gray-900">Brands</p>
+                                <p id="Acessórios-heading" class="font-medium text-gray-900">Acessórios</p>
                                 <ul
                                   role="list"
-                                  aria-labelledby="Brands-heading"
+                                  aria-labelledby="Acessórios-heading"
                                   class="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                 >
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Full Nelson </a>
+                                    <a href="#" class="hover:text-gray-800"> Relógios </a>
                                   </li>
 
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> My Way </a>
+                                    <a href="#" class="hover:text-gray-800"> Carteiras </a>
                                   </li>
 
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Re-Arranged </a>
+                                    <a href="#" class="hover:text-gray-800"> Malas </a>
                                   </li>
 
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Counterfeit </a>
+                                    <a href="#" class="hover:text-gray-800"> Óculos de Sol </a>
                                   </li>
 
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Significant Other </a>
+                                    <a href="#" class="hover:text-gray-800"> Chapéus </a>
+                                  </li>
+
+                                  <li class="flex">
+                                    <a href="#" class="hover:text-gray-800"> Cintos </a>
+                                  </li>
+                                </ul>
+                              </div>
+
+                              <div>
+                                <p id="Contactos-heading" class="font-medium text-gray-900">Contactos</p>
+                                <ul
+                                  role="list"
+                                  aria-labelledby="Contactos-heading"
+                                  class="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
+                                >
+                                  <li class="flex">
+                                    <a href="#" class="hover:text-gray-800"> E-Mail </a>
+                                  </li>
+
+                                  <li class="flex">
+                                    <a href="#" class="hover:text-gray-800"> Telefone </a>
+                                  </li>
+
+                                  <li class="flex">
+                                    <a href="#" class="hover:text-gray-800"> Correio </a>
+                                  </li>
+
+                                  <li class="flex">
+                                    <a href="#" class="hover:text-gray-800"> Chat </a>
                                   </li>
                                 </ul>
                               </div>
@@ -652,30 +586,15 @@
                       <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
                       <button
                         type="button"
-                        class="
-                          relative
-                          z-10
-                          flex
-                          items-center
-                          pt-px
-                          -mb-px
-                          text-sm
-                          font-medium
-                          text-gray-700
-                          transition-colors
-                          duration-200
-                          ease-out
-                          border-b-2 border-transparent
-                          hover:text-gray-800
-                        "
+                        class="relative z-10 flex items-center pt-px -mb-px text-sm font-medium text-gray-700 transition-colors duration-200 ease-out border-b-2 border-transparent hover:text-gray-800"
                         aria-expanded="false"
                       >
-                        Men
+                        Casa
                       </button>
                     </div>
 
                     <!--
-                  'Men' flyout menu, show/hide based on flyout menu state.
+                  'Casa' flyout menu, show/hide based on flyout menu state.
 
                   Entering: "transition ease-out duration-200"
                     From: "opacity-0"
@@ -694,13 +613,7 @@
                             <div class="grid grid-cols-2 col-start-2 gap-x-8">
                               <div class="relative text-base group sm:text-sm">
                                 <div
-                                  class="
-                                    overflow-hidden
-                                    bg-gray-100
-                                    rounded-lg
-                                    aspect-w-1 aspect-h-1
-                                    group-hover:opacity-75
-                                  "
+                                  class="overflow-hidden bg-gray-100 rounded-lg aspect-w-1 aspect-h-1 group-hover:opacity-75"
                                 >
                                   <img
                                     src="https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg"
@@ -710,40 +623,34 @@
                                 </div>
                                 <a href="#" class="block mt-6 font-medium text-gray-900">
                                   <span class="absolute inset-0 z-10" aria-hidden="true"></span>
-                                  New Arrivals
+                                  Novos Produtos
                                 </a>
-                                <p aria-hidden="true" class="mt-1">Shop now</p>
+                                <p aria-hidden="true" class="mt-1">Comprar agora</p>
                               </div>
 
                               <div class="relative text-base group sm:text-sm">
                                 <div
-                                  class="
-                                    overflow-hidden
-                                    bg-gray-100
-                                    rounded-lg
-                                    aspect-w-1 aspect-h-1
-                                    group-hover:opacity-75
-                                  "
+                                  class="overflow-hidden bg-gray-100 rounded-lg aspect-w-1 aspect-h-1 group-hover:opacity-75"
                                 >
                                   <img
-                                    src="https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg"
+                                    src="https://cdn.laredoute.com/products/c/5/f/c5f540964b7bb930c22760c66ef225f7.jpg?imgopt=twic&twic=v1"
                                     alt="Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt."
                                     class="object-cover object-center"
                                   />
                                 </div>
                                 <a href="#" class="block mt-6 font-medium text-gray-900">
                                   <span class="absolute inset-0 z-10" aria-hidden="true"></span>
-                                  Artwork Tees
+                                  Móveis em Promoção
                                 </a>
-                                <p aria-hidden="true" class="mt-1">Shop now</p>
+                                <p aria-hidden="true" class="mt-1">Comprar agora</p>
                               </div>
                             </div>
                             <div class="grid grid-cols-3 row-start-1 text-sm gap-y-10 gap-x-8">
                               <div>
-                                <p class="font-medium text-gray-900">Clothing</p>
+                                <p class="font-medium text-gray-900">Roupas</p>
                                 <ul
                                   role="list"
-                                  aria-labelledby="Clothing-heading"
+                                  aria-labelledby="Roupas-heading"
                                   class="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                 >
                                   <li class="flex">
@@ -751,7 +658,7 @@
                                   </li>
 
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Pants </a>
+                                    <a href="#" class="hover:text-gray-800"> Calças </a>
                                   </li>
 
                                   <li class="flex">
@@ -763,73 +670,73 @@
                                   </li>
 
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Jackets </a>
+                                    <a href="#" class="hover:text-gray-800"> Casacos </a>
                                   </li>
 
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Activewear </a>
+                                    <a href="#" class="hover:text-gray-800"> Desporto </a>
                                   </li>
 
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Browse All </a>
-                                  </li>
-                                </ul>
-                              </div>
-
-                              <div>
-                                <p class="font-medium text-gray-900">Accessories</p>
-                                <ul
-                                  role="list"
-                                  aria-labelledby="Accessories-heading"
-                                  class="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                >
-                                  <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Watches </a>
-                                  </li>
-
-                                  <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Wallets </a>
-                                  </li>
-
-                                  <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Bags </a>
-                                  </li>
-
-                                  <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Sunglasses </a>
-                                  </li>
-
-                                  <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Hats </a>
-                                  </li>
-
-                                  <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Belts </a>
+                                    <a href="#" class="hover:text-gray-800"> Ver Tudo </a>
                                   </li>
                                 </ul>
                               </div>
 
                               <div>
-                                <p class="font-medium text-gray-900">Brands</p>
+                                <p class="font-medium text-gray-900">Acessórios</p>
                                 <ul
                                   role="list"
-                                  aria-labelledby="Brands-heading"
+                                  aria-labelledby="Acessórios-heading"
                                   class="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                 >
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Re-Arranged </a>
+                                    <a href="#" class="hover:text-gray-800"> Relógios </a>
                                   </li>
 
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Counterfeit </a>
+                                    <a href="#" class="hover:text-gray-800"> Carteiras </a>
                                   </li>
 
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> Full Nelson </a>
+                                    <a href="#" class="hover:text-gray-800"> Malas </a>
                                   </li>
 
                                   <li class="flex">
-                                    <a href="#" class="hover:text-gray-800"> My Way </a>
+                                    <a href="#" class="hover:text-gray-800"> Óculos de Sol </a>
+                                  </li>
+
+                                  <li class="flex">
+                                    <a href="#" class="hover:text-gray-800"> Chapéus </a>
+                                  </li>
+
+                                  <li class="flex">
+                                    <a href="#" class="hover:text-gray-800"> Cintos </a>
+                                  </li>
+                                </ul>
+                              </div>
+
+                              <div>
+                                <p class="font-medium text-gray-900">Contactos</p>
+                                <ul
+                                  role="list"
+                                  aria-labelledby="Contactos-heading"
+                                  class="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
+                                >
+                                  <li class="flex">
+                                    <a href="#" class="hover:text-gray-800"> Correio </a>
+                                  </li>
+
+                                  <li class="flex">
+                                    <a href="#" class="hover:text-gray-800"> Chat </a>
+                                  </li>
+
+                                  <li class="flex">
+                                    <a href="#" class="hover:text-gray-800"> E-Mail </a>
+                                  </li>
+
+                                  <li class="flex">
+                                    <a href="#" class="hover:text-gray-800"> Telefone </a>
                                   </li>
                                 </ul>
                               </div>
@@ -840,11 +747,13 @@
                     </div>
                   </div>
 
-                  <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
-                    >Company</a
-                  >
+                  <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">
+                    Eletrodomésticos
+                  </a>
 
-                  <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Stores</a>
+                  <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">
+                    Tendências
+                  </a>
                 </div>
               </div>
 
@@ -903,13 +812,13 @@
                 <thead>
                   <tr class="h-12 uppercase">
                     <th class="hidden md:table-cell"></th>
-                    <th class="text-left">Product</th>
+                    <th class="text-left">Produto</th>
                     <th class="pl-5 text-left lg:text-right lg:pl-0">
                       <span class="lg:hidden" title="Quantity">Qtd</span>
-                      <span class="hidden lg:inline">Quantity</span>
+                      <span class="hidden lg:inline">Quantidade</span>
                     </th>
-                    <th class="hidden text-right md:table-cell">Unit price</th>
-                    <th class="text-right">Total price</th>
+                    <th class="hidden text-right md:table-cell">Preço unitário</th>
+                    <th class="text-right">Preço total</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -917,7 +826,7 @@
                     <td class="hidden pb-4 md:table-cell">
                       <a href="#">
                         <img
-                          src="https://limg.app/i/Calm-Cormorant-Catholic-Pinball-Blaster-yM4oub.jpeg"
+                          src="https://cdn.laredoute.com/products/a/b/1/ab178446883bb28842a81d22277151fe.jpg?imgopt=twic&twic=v1"
                           class="w-20 rounded"
                           alt="Thumbnail"
                         />
@@ -925,10 +834,10 @@
                     </td>
                     <td>
                       <a href="#">
-                        <p class="mb-2 md:ml-4">Earphone</p>
+                        <p>Mesa de jardinagem, em acácia, Wassif</p>
                         <form action="" method="POST">
-                          <button type="submit" class="text-gray-700 md:ml-4">
-                            <small>(Remove item)</small>
+                          <button type="submit" class="text-gray-700">
+                            <small>(Remover item)</small>
                           </button>
                         </form>
                       </a>
@@ -938,43 +847,34 @@
                         <div class="relative flex flex-row w-full h-8">
                           <input
                             type="number"
-                            value="2"
-                            class="
-                              w-full
-                              font-semibold
-                              text-center text-gray-700
-                              bg-gray-200
-                              outline-none
-                              focus:outline-none
-                              hover:text-black
-                              focus:text-black
-                            "
+                            value="1"
+                            class="w-full font-semibold text-center text-gray-700 bg-gray-200 outline-none focus:outline-none hover:text-black focus:text-black"
                           />
                         </div>
                       </div>
                     </td>
                     <td class="hidden text-right md:table-cell">
-                      <span class="text-sm font-medium lg:text-base"> 10.00€ </span>
+                      <span class="text-sm font-medium lg:text-base"> 269.10€ </span>
                     </td>
                     <td class="text-right">
-                      <span class="text-sm font-medium lg:text-base"> 20.00€ </span>
+                      <span class="text-sm font-medium lg:text-base"> 269.10€ </span>
                     </td>
                   </tr>
                   <tr>
                     <td class="hidden pb-4 md:table-cell">
                       <a href="#">
                         <img
-                          src="https://limg.app/i/Cute-Constrictor-Super-Sexy-Military-Enforcer-W7mvBp.png"
+                          src="https://cdn.laredoute.com/products/d/d/b/ddba6be4a2bb4b3e07ba29e6cbaac725.jpg?imgopt=twic&twic=v1"
                           class="w-20 rounded"
                           alt="Thumbnail"
                         />
                       </a>
                     </td>
                     <td>
-                      <p class="mb-2 md:ml-4">Tesla Model 3</p>
+                      <p>Casaco com fecho e capuz, Soft</p>
                       <form action="" method="POST">
-                        <button type="submit" class="text-gray-700 md:ml-4">
-                          <small>(Remove item)</small>
+                        <button type="submit" class="text-gray-700">
+                          <small>(Remover item)</small>
                         </button>
                       </form>
                     </td>
@@ -983,71 +883,17 @@
                         <div class="relative flex flex-row w-full h-8">
                           <input
                             type="number"
-                            value="3"
-                            class="
-                              w-full
-                              font-semibold
-                              text-center text-gray-700
-                              bg-gray-200
-                              outline-none
-                              focus:outline-none
-                              hover:text-black
-                              focus:text-black
-                            "
+                            value="2"
+                            class="w-full font-semibold text-center text-gray-700 bg-gray-200 outline-none focus:outline-none hover:text-black focus:text-black"
                           />
                         </div>
                       </div>
                     </td>
                     <td class="hidden text-right md:table-cell">
-                      <span class="text-sm font-medium lg:text-base"> 49,600.01€ </span>
+                      <span class="text-sm font-medium lg:text-base"> 26.99€ </span>
                     </td>
                     <td class="text-right">
-                      <span class="text-sm font-medium lg:text-base"> 148,800.03€ </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="hidden pb-4 md:table-cell">
-                      <a href="#">
-                        <img
-                          src="https://limg.app/i/Successful-Spider-Biblical-Mutant---Total-War-lKoE7D.jpeg"
-                          class="w-20 rounded"
-                          alt="Thumbnail"
-                        />
-                      </a>
-                    </td>
-                    <td>
-                      <p class="mb-2 md:ml-4">Bic 4 colour pen</p>
-                      <form action="" method="POST">
-                        <button type="submit" class="text-gray-700 md:ml-4">
-                          <small>(Remove item)</small>
-                        </button>
-                      </form>
-                    </td>
-                    <td class="justify-center md:justify-end md:flex md:mt-8">
-                      <div class="w-20 h-10">
-                        <div class="relative flex flex-row w-full h-8">
-                          <input
-                            type="number"
-                            value="5"
-                            class="
-                              w-full
-                              font-semibold
-                              text-center text-gray-700
-                              bg-gray-200
-                              outline-none
-                              focus:outline-none
-                              hover:text-black
-                              focus:text-black
-                            "
-                          />
-                        </div>
-                      </div>
-                    </td>
-                    <td class="hidden text-right md:table-cell">
-                      <span class="text-sm font-medium lg:text-base"> 1.50€ </span>
-                    </td>
-                    <td class="text-right">
-                      <span class="text-sm font-medium lg:text-base"> 7.50€ </span>
+                      <span class="text-sm font-medium lg:text-base"> 53.98€ </span>
                     </td>
                   </tr>
                 </tbody>
@@ -1056,10 +902,10 @@
               <div class="my-4 mt-6 -mx-2 lg:flex">
                 <div class="lg:px-2 lg:w-1/2">
                   <div class="p-4 bg-gray-100 rounded-full">
-                    <h1 class="ml-2 font-bold uppercase">Coupon Code</h1>
+                    <h1 class="ml-2 font-bold uppercase">Cupão</h1>
                   </div>
                   <div class="p-4">
-                    <p class="mb-4 italic">If you have a coupon code, please enter it in the box below</p>
+                    <p class="mb-4 italic">Se tiver um cupão, por favor insira-o na caixa abaixo</p>
                     <div class="justify-center md:flex">
                       <form action="" method="POST">
                         <div class="flex items-center w-full pl-3 bg-gray-100 border rounded-full h-13">
@@ -1067,33 +913,13 @@
                             type="coupon"
                             name="code"
                             id="coupon"
-                            placeholder="Apply coupon"
+                            placeholder="Aplicar cupão"
                             value="90off"
-                            class="
-                              w-full
-                              bg-gray-100
-                              outline-none
-                              appearance-none
-                              focus:outline-none
-                              active:outline-none
-                            "
+                            class="w-full bg-gray-100 outline-none appearance-none focus:outline-none active:outline-none"
                           />
                           <button
                             type="submit"
-                            class="
-                              flex
-                              items-center
-                              px-3
-                              py-1
-                              text-sm text-white
-                              bg-gray-800
-                              rounded-full
-                              outline-none
-                              md:px-4
-                              hover:bg-gray-700
-                              focus:outline-none
-                              active:outline-none
-                            "
+                            class="flex items-center px-3 py-1 text-sm text-white bg-gray-800 rounded-full outline-none md:px-4 hover:bg-gray-700 focus:outline-none active:outline-none"
                           >
                             <svg
                               aria-hidden="true"
@@ -1108,35 +934,30 @@
                                 d="M32 448c0 17.7 14.3 32 32 32h160V320H32v128zm256 32h160c17.7 0 32-14.3 32-32V320H288v160zm192-320h-42.1c6.2-12.1 10.1-25.5 10.1-40 0-48.5-39.5-88-88-88-41.6 0-68.5 21.3-103 68.3-34.5-47-61.4-68.3-103-68.3-48.5 0-88 39.5-88 88 0 14.5 3.8 27.9 10.1 40H32c-17.7 0-32 14.3-32 32v80c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16v-80c0-17.7-14.3-32-32-32zm-326.1 0c-22.1 0-40-17.9-40-40s17.9-40 40-40c19.9 0 34.6 3.3 86.1 80h-86.1zm206.1 0h-86.1c51.4-76.5 65.7-80 86.1-80 22.1 0 40 17.9 40 40s-17.9 40-40 40z"
                               />
                             </svg>
-                            <span class="font-medium">Apply coupon</span>
+                            <span class="font-medium">Aplicar cupão</span>
                           </button>
                         </div>
                       </form>
                     </div>
                   </div>
                   <div class="p-4 mt-6 bg-gray-100 rounded-full">
-                    <h1 class="ml-2 font-bold uppercase">Instruction for seller</h1>
+                    <h1 class="ml-2 font-bold uppercase">Instruções para o vendedor</h1>
                   </div>
                   <div class="p-4">
-                    <p class="mb-4 italic">
-                      If you have some information for the seller you can leave them in the box below
-                    </p>
+                    <p class="mb-4 italic">Se tiver alguma informação para o vendedor, pode deixá-la na caixa abaixo</p>
                     <textarea class="w-full h-24 p-2 bg-gray-100 rounded"></textarea>
                   </div>
                 </div>
                 <div class="lg:px-2 lg:w-1/2">
                   <div class="p-4 bg-gray-100 rounded-full">
-                    <h1 class="ml-2 font-bold uppercase">Order Details</h1>
+                    <h1 class="ml-2 font-bold uppercase">Detalhes de Compra</h1>
                   </div>
                   <div class="p-4">
-                    <p class="mb-6 italic">
-                      Shipping and additionnal costs are calculated based on values you have entered
-                    </p>
                     <div class="flex justify-between border-b">
                       <div class="m-2 text-lg font-bold text-center text-gray-800 lg:px-4 lg:py-2 lg:text-xl">
-                        Subtotal
+                        Total
                       </div>
-                      <div class="m-2 font-bold text-center text-gray-900 lg:px-4 lg:py-2 lg:text-lg">148,827.53€</div>
+                      <div class="m-2 font-bold text-center text-gray-900 lg:px-4 lg:py-2 lg:text-lg">323,08€</div>
                     </div>
                     <div class="flex justify-between pt-4 border-b">
                       <div class="flex m-2 text-lg font-bold text-gray-800 lg:px-4 lg:py-2 lg:text-xl">
@@ -1157,47 +978,19 @@
                             </svg>
                           </button>
                         </form>
-                        Coupon "90off"
+                        Cupão "90off"
                       </div>
-                      <div class="m-2 font-bold text-center text-green-700 lg:px-4 lg:py-2 lg:text-lg">
-                        -133,944.77€
-                      </div>
+                      <div class="m-2 font-bold text-center text-green-700 lg:px-4 lg:py-2 lg:text-lg">-290,77€</div>
                     </div>
                     <div class="flex justify-between pt-4 border-b">
                       <div class="m-2 text-lg font-bold text-center text-gray-800 lg:px-4 lg:py-2 lg:text-xl">
-                        New Subtotal
+                        Novo Total
                       </div>
-                      <div class="m-2 font-bold text-center text-gray-900 lg:px-4 lg:py-2 lg:text-lg">14,882.75€</div>
-                    </div>
-                    <div class="flex justify-between pt-4 border-b">
-                      <div class="m-2 text-lg font-bold text-center text-gray-800 lg:px-4 lg:py-2 lg:text-xl">Tax</div>
-                      <div class="m-2 font-bold text-center text-gray-900 lg:px-4 lg:py-2 lg:text-lg">2,976.55€</div>
-                    </div>
-                    <div class="flex justify-between pt-4 border-b">
-                      <div class="m-2 text-lg font-bold text-center text-gray-800 lg:px-4 lg:py-2 lg:text-xl">
-                        Total
-                      </div>
-                      <div class="m-2 font-bold text-center text-gray-900 lg:px-4 lg:py-2 lg:text-lg">17,859.3€</div>
+                      <div class="m-2 font-bold text-center text-gray-900 lg:px-4 lg:py-2 lg:text-lg">32,31€</div>
                     </div>
                     <a href="#">
                       <button
-                        class="
-                          flex
-                          justify-center
-                          w-full
-                          px-10
-                          py-3
-                          mt-6
-                          font-medium
-                          text-white
-                          uppercase
-                          bg-gray-800
-                          rounded-full
-                          shadow
-                          item-center
-                          hover:bg-gray-700
-                          focus:shadow-outline focus:outline-none
-                        "
+                        class="flex justify-center w-full px-10 py-3 mt-6 font-medium text-white uppercase bg-gray-800 rounded-full shadow item-center hover:bg-gray-700 focus:shadow-outline focus:outline-none"
                       >
                         <svg
                           aria-hidden="true"
@@ -1212,7 +1005,7 @@
                             d="M527.9 32H48.1C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48.1 48h479.8c26.6 0 48.1-21.5 48.1-48V80c0-26.5-21.5-48-48.1-48zM54.1 80h467.8c3.3 0 6 2.7 6 6v42H48.1V86c0-3.3 2.7-6 6-6zm467.8 352H54.1c-3.3 0-6-2.7-6-6V256h479.8v170c0 3.3-2.7 6-6 6zM192 332v40c0 6.6-5.4 12-12 12h-72c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12zm192 0v40c0 6.6-5.4 12-12 12H236c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12z"
                           />
                         </svg>
-                        <span class="ml-2 mt-5px">Procceed to checkout</span>
+                        <span class="ml-2 mt-5px">Proceder para o pagamento</span>
                       </button>
                     </a>
                   </div>

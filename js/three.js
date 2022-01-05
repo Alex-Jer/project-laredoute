@@ -5,10 +5,6 @@ const renderer = new THREE.WebGLRenderer();
 const clock = new THREE.Clock();
 const mixer = new THREE.AnimationMixer(scene);
 
-const newMaterial = new THREE.MeshNormalMaterial();
-let defaultWorkbenchMaterial = null;
-let defaultStonebenchMaterial = null;
-
 new THREE.OrbitControls(camera, renderer.domElement);
 
 let workbench;
@@ -101,10 +97,10 @@ function toggleLights() {
   if (isLightOn) {
     isLightOn = false;
     scene.remove(scene.getObjectByName('PointLightFront'));
-    // scene.remove(scene.getObjectByName('PointLightBack'));
-    // scene.remove(scene.getObjectByName('PointLightLeft'));
-    // scene.remove(scene.getObjectByName('PointLightRight'));
-    // scene.remove(scene.getObjectByName('PointLightBelow'));
+    scene.remove(scene.getObjectByName('PointLightBack'));
+    scene.remove(scene.getObjectByName('PointLightLeft'));
+    scene.remove(scene.getObjectByName('PointLightRight'));
+    scene.remove(scene.getObjectByName('PointLightBelow'));
     renderer.render(scene, camera);
   } else {
     isLightOn = true;

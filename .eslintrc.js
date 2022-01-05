@@ -16,5 +16,6 @@ module.exports = {
     'no-undef': 'off',
     'no-param-reassign': 'off',
     'no-new': 'off',
+    'no-return-assign': 'off',
   },
 };
