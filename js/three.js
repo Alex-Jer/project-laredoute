@@ -5,11 +5,18 @@ const renderer = new THREE.WebGLRenderer();
 const clock = new THREE.Clock();
 const mixer = new THREE.AnimationMixer(scene);
 
+const newMaterial = new THREE.MeshNormalMaterial();
+let defaultWorkbenchMaterial = null;
+let defaultStonebenchMaterial = null;
+
 new THREE.OrbitControls(camera, renderer.domElement);
 
+let workbench;
+let stonebench;
 let actionBench;
 let actionDoorLeft;
 let actionDoorRight;
+let isLightOn = true;
 
 document.body.appendChild(canvas.cloneNode(true));
 scene.background = new THREE.Color(0xf3f4f6);
@@ -49,38 +56,65 @@ function loadScene() {
     actionDoorRight.timeScale = -actionDoorRight.timeScale;
 
     scene.traverse((objMesh) => {
-      if (objMesh.isMesh) {
-        objMesh.castShadow = true;
-        objMesh.receiveShadow = true;
-      }
+      // console.log(objMesh.name);
+      workbench = scene.getObjectByName('workBench');
+      stonebench = scene.getObjectByName('stoneBench');
+      if (!objMesh.isMesh) return;
+      objMesh.castShadow = true;
+      objMesh.receiveShadow = true;
     });
   });
 }
 
-function addlights() {
+function addLights() {
   const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+  ambientLight.name = 'ambientLight';
   scene.add(ambientLight);
 
   const pointLightFront = new THREE.PointLight(0xffffff, 1.5);
-  pointLightFront.position.set(0, 0, 14);
+  pointLightFront.position.set(0, 0, 54);
+  pointLightFront.name = 'PointLightFront';
   scene.add(pointLightFront);
 
   const pointLightBack = new THREE.PointLight(0xffffff, 1.5);
   pointLightBack.position.set(28, 0, -28);
-  // pointLightBack.position.set(0, 0, -14);
+  pointLightBack.name = 'PointLightBack';
   scene.add(pointLightBack);
 
   const pointLightRight = new THREE.PointLight(0xffffff, 1.5);
   pointLightRight.position.set(28, 0, 0);
+  pointLightRight.name = 'PointLightRight';
   scene.add(pointLightRight);
 
   const pointLightLeft = new THREE.PointLight(0xffffff, 1.5);
   pointLightLeft.position.set(-28, 0, 0);
+  pointLightLeft.name = 'PointLightLeft';
   scene.add(pointLightLeft);
 
   const pointLightBelow = new THREE.PointLight(0xffffff, 1.5);
   pointLightBelow.position.set(0, -28, 0);
+  pointLightBelow.name = 'PointLightBelow';
   scene.add(pointLightBelow);
+}
+
+function toggleLights() {
+  if (isLightOn) {
+    isLightOn = false;
+    scene.remove(scene.getObjectByName('PointLightFront'));
+    // scene.remove(scene.getObjectByName('PointLightBack'));
+    // scene.remove(scene.getObjectByName('PointLightLeft'));
+    // scene.remove(scene.getObjectByName('PointLightRight'));
+    // scene.remove(scene.getObjectByName('PointLightBelow'));
+    renderer.render(scene, camera);
+  } else {
+    isLightOn = true;
+    // const pointLightFront = new THREE.PointLight('red');
+    // pointLightFront.position.set(0, 0, 54);
+    // pointLightFront.name = 'PointLightFront';
+    // scene.add(pointLightFront);
+    // renderer.render(scene, camera);
+  }
+  console.log(scene.children);
 }
 
 function actionButtons() {
@@ -105,9 +139,29 @@ function actionButtons() {
     actionDoorLeft.clampWhenFinished = true;
     actionDoorRight.clampWhenFinished = true;
   };
+
+  document.getElementById('material').onclick = () => {
+    if (!workbench) return;
+    // if (defaultWorkbenchMaterial) return;
+    // defaultWorkbenchMaterial = workbench.material;
+
+    // if (!stonebench) return;
+    // if (defaultStonebenchMaterial) return;
+    // defaultStonebenchMaterial = stonebench.material;
+
+    toggleLights();
+
+    if (!isLightOn) {
+      workbench.material.map = new THREE.TextureLoader().load('/models/materials/Marble018_1K_Color.jpg');
+      stonebench.material.map = new THREE.TextureLoader().load('/models/materials/Wood051_1K_Color.png');
+    } else {
+      workbench.material.map = new THREE.TextureLoader().load('/models/materials/Wood051_1K_Color.png');
+      stonebench.material.map = new THREE.TextureLoader().load('/models/materials/Marble018_1K_Color.jpg');
+    }
+  };
 }
 
 loadScene();
-addlights();
+addLights();
 actionButtons();
 animate();
