@@ -1,4 +1,4 @@
-const materialsButton = document.getElementById('materials');
+const materialsSelect = document.getElementById('materials');
 
 const canvas = document.getElementById('canvas');
 const scene = new THREE.Scene();
@@ -99,10 +99,14 @@ function addLights() {
   scene.add(pointLightBelow);
 }
 
+let isAnimationToggled = true;
+
 /**
  * Corre as animações de abrir e fechar a workbench
  */
-document.getElementById('toggle-animation').onclick = () => {
+function toggleAnimation() {
+  isAnimationToggled = !isAnimationToggled;
+
   actionBench.timeScale = -actionBench.timeScale;
   actionDoorLeft.timeScale = -actionDoorLeft.timeScale;
   actionDoorRight.timeScale = -actionDoorRight.timeScale;
@@ -122,7 +126,9 @@ document.getElementById('toggle-animation').onclick = () => {
   actionBench.clampWhenFinished = true;
   actionDoorLeft.clampWhenFinished = true;
   actionDoorRight.clampWhenFinished = true;
-};
+}
+
+document.getElementById('toggle-animation').onclick = () => toggleAnimation();
 
 /**
  * Liga/Desliga as luzes
@@ -144,11 +150,11 @@ document.getElementById('luz').onclick = () => toggleLights();
 /**
  * Responsável por trocar a textura do tampo e da workbench
  */
-materialsButton.onchange = () => {
+materialsSelect.onchange = () => {
   if (!workbench) return;
   if (!stonebench) return;
 
-  if (materialsButton.value === 'marble') {
+  if (materialsSelect.value === 'marble') {
     workbench.material.map = new THREE.TextureLoader().load('/models/materials/Marble018_1K_Color.jpg');
     stonebench.material.map = new THREE.TextureLoader().load('/models/materials/Wood051_1K_Color.png');
     return;
@@ -156,14 +162,6 @@ materialsButton.onchange = () => {
 
   workbench.material.map = new THREE.TextureLoader().load('/models/materials/Wood051_1K_Color.png');
   stonebench.material.map = new THREE.TextureLoader().load('/models/materials/Marble018_1K_Color.jpg');
-};
-
-/**
- * Coloca a câmera na posição default
- */
-document.getElementById('reset').onclick = () => {
-  camera.position.set(0, 0, 14);
-  camera.lookAt(0, 0, 0);
 };
 
 let isContrastOn = false;
@@ -175,6 +173,26 @@ document.getElementById('contraste').onclick = () => {
   isContrastOn = !isContrastOn;
   if (isContrastOn) return (scene.background = new THREE.Color(0x181d1f));
   return (scene.background = new THREE.Color(0xf3f4f6));
+};
+
+/**
+ * Coloca a câmera na posição default
+ */
+document.getElementById('reset').onclick = () => {
+  materialsSelect.value = 'wood';
+
+  camera.position.set(0, 0, 14);
+  camera.lookAt(0, 0, 0);
+
+  workbench.material.map = new THREE.TextureLoader().load('/models/materials/Wood051_1K_Color.png');
+  stonebench.material.map = new THREE.TextureLoader().load('/models/materials/Marble018_1K_Color.jpg');
+
+  if (!isLightOn) toggleLights();
+  if (!isAnimationToggled) toggleAnimation();
+  if (isContrastOn) {
+    isContrastOn = false;
+    scene.background = new THREE.Color(0xf3f4f6);
+  }
 };
 
 loadScene();
