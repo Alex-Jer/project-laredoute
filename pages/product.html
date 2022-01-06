@@ -998,27 +998,37 @@
             name="materials"
             id="materials"
             class="px-3 m-0 text-base font-normal text-gray-800 transition ease-in-out bg-white bg-no-repeat border border-gray-800 border-solid rounded form-select bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            style="padding: 7px 0 8px"
+            style="padding: 7px 0 6px 8px"
           >
             <option selected="true" value="wood">Madeira</option>
             <option value="marble">Mármore</option>
           </select>
           <button
-            class="px-4 py-2 mt-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+            class="inline-flex items-center px-4 py-2 mt-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
             id="toggle-animation"
           >
-            Abrir / Fechar
+            <img src="icons/door-closed-solid.svg" class="w-auto h-4 mr-2.5 text-white" />
+            <span> Abrir / Fechar </span>
           </button>
-          <button class="px-4 py-2 mt-4 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-700" id="luz">
+          <button
+            class="inline-flex items-center px-4 py-2 mt-4 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-700"
+            id="luz"
+          >
+            <img src="icons/lightbulb-solid.svg" class="w-auto h-4 mr-2.5 text-white" />
             Ligar/Desligar Luz
           </button>
-          <button class="px-4 py-2 mt-4 font-bold text-white bg-green-500 rounded hover:bg-green-700" id="contraste">
+          <button
+            class="inline-flex items-center px-4 py-2 mt-4 font-bold text-white bg-green-500 rounded hover:bg-green-700"
+            id="contraste"
+          >
+            <img src="icons/moon-solid.svg" class="w-auto h-4 mr-1.5 text-white" />
             Contraste de Fundo
           </button>
           <button
-            class="float-right px-4 py-2 mt-4 font-bold text-white bg-gray-500 rounded hover:bg-gray-700"
+            class="inline-flex items-center float-right px-4 py-2 mt-4 font-bold text-white bg-gray-500 rounded hover:bg-gray-700"
             id="reset"
           >
+            <img src="icons/arrow-rotate-left-solid.svg" class="w-auto h-4 mr-2.5 text-white" />
             Reset
           </button>
         </div>
