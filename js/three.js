@@ -155,11 +155,15 @@ materialsSelect.onchange = () => {
   if (!stonebench) return;
 
   if (materialsSelect.value === 'marble') {
+    isLightOn = true;
+    toggleLights();
     workbench.material.map = new THREE.TextureLoader().load('/models/materials/Marble018_1K_Color.jpg');
     stonebench.material.map = new THREE.TextureLoader().load('/models/materials/Wood051_1K_Color.png');
     return;
   }
 
+  isLightOn = false;
+  toggleLights();
   workbench.material.map = new THREE.TextureLoader().load('/models/materials/Wood051_1K_Color.png');
   stonebench.material.map = new THREE.TextureLoader().load('/models/materials/Marble018_1K_Color.jpg');
 };
