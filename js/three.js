@@ -1,3 +1,5 @@
+const materialsButton = document.getElementById('materials');
+
 const canvas = document.getElementById('canvas');
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(70, 1215 / 600, 0.01, 1000);
@@ -12,7 +14,6 @@ let stonebench;
 let actionBench;
 let actionDoorLeft;
 let actionDoorRight;
-let isLightOn = true;
 
 document.body.appendChild(canvas.cloneNode(true));
 scene.background = new THREE.Color(0xf3f4f6);
@@ -62,102 +63,120 @@ function loadScene() {
   });
 }
 
+let isLightOn = true;
+const pointLightFront = new THREE.PointLight(0xffffff, 1.5);
+const pointLightBack = new THREE.PointLight(0xffffff, 1.5);
+const pointLightRight = new THREE.PointLight(0xffffff, 1.5);
+const pointLightLeft = new THREE.PointLight(0xffffff, 1.5);
+const pointLightBelow = new THREE.PointLight(0xffffff, 1.5);
+
+/**
+ * Adiciona os pontos de luz ao canvas
+ */
 function addLights() {
   const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
   ambientLight.name = 'ambientLight';
   scene.add(ambientLight);
 
-  const pointLightFront = new THREE.PointLight(0xffffff, 1.5);
   pointLightFront.position.set(0, 0, 54);
   pointLightFront.name = 'PointLightFront';
   scene.add(pointLightFront);
 
-  const pointLightBack = new THREE.PointLight(0xffffff, 1.5);
   pointLightBack.position.set(28, 0, -28);
   pointLightBack.name = 'PointLightBack';
   scene.add(pointLightBack);
 
-  const pointLightRight = new THREE.PointLight(0xffffff, 1.5);
   pointLightRight.position.set(28, 0, 0);
   pointLightRight.name = 'PointLightRight';
   scene.add(pointLightRight);
 
-  const pointLightLeft = new THREE.PointLight(0xffffff, 1.5);
   pointLightLeft.position.set(-28, 0, 0);
   pointLightLeft.name = 'PointLightLeft';
   scene.add(pointLightLeft);
 
-  const pointLightBelow = new THREE.PointLight(0xffffff, 1.5);
   pointLightBelow.position.set(0, -28, 0);
   pointLightBelow.name = 'PointLightBelow';
   scene.add(pointLightBelow);
 }
 
+/**
+ * Corre as animações de abrir e fechar a workbench
+ */
+document.getElementById('toggle-animation').onclick = () => {
+  actionBench.timeScale = -actionBench.timeScale;
+  actionDoorLeft.timeScale = -actionDoorLeft.timeScale;
+  actionDoorRight.timeScale = -actionDoorRight.timeScale;
+
+  actionBench.paused = false;
+  actionDoorLeft.paused = false;
+  actionDoorRight.paused = false;
+
+  actionBench.play();
+  actionDoorLeft.play();
+  actionDoorRight.play();
+
+  actionBench.setLoop(THREE.LoopOnce);
+  actionDoorLeft.setLoop(THREE.LoopOnce);
+  actionDoorRight.setLoop(THREE.LoopOnce);
+
+  actionBench.clampWhenFinished = true;
+  actionDoorLeft.clampWhenFinished = true;
+  actionDoorRight.clampWhenFinished = true;
+};
+
+/**
+ * Liga/Desliga as luzes
+ */
 function toggleLights() {
-  if (isLightOn) {
-    isLightOn = false;
-    scene.remove(scene.getObjectByName('PointLightFront'));
-    scene.remove(scene.getObjectByName('PointLightBack'));
-    scene.remove(scene.getObjectByName('PointLightLeft'));
-    scene.remove(scene.getObjectByName('PointLightRight'));
-    scene.remove(scene.getObjectByName('PointLightBelow'));
-    renderer.render(scene, camera);
-  } else {
-    isLightOn = true;
-    // const pointLightFront = new THREE.PointLight('red');
-    // pointLightFront.position.set(0, 0, 54);
-    // pointLightFront.name = 'PointLightFront';
-    // scene.add(pointLightFront);
-    // renderer.render(scene, camera);
+  isLightOn = !isLightOn;
+  pointLightFront.intensity = isLightOn;
+  pointLightBack.intensity = isLightOn;
+  pointLightRight.intensity = isLightOn;
+  pointLightLeft.intensity = isLightOn;
+  pointLightBelow.intensity = isLightOn;
+}
+
+/**
+ * Responsável por ligar/desligar a luz
+ */
+document.getElementById('luz').onclick = () => toggleLights();
+
+/**
+ * Responsável por trocar a textura do tampo e da workbench
+ */
+materialsButton.onchange = () => {
+  if (!workbench) return;
+  if (!stonebench) return;
+
+  if (materialsButton.value === 'marble') {
+    workbench.material.map = new THREE.TextureLoader().load('/models/materials/Marble018_1K_Color.jpg');
+    stonebench.material.map = new THREE.TextureLoader().load('/models/materials/Wood051_1K_Color.png');
+    return;
   }
-  console.log(scene.children);
-}
 
-function actionButtons() {
-  document.getElementById('toggle-animation').onclick = () => {
-    actionBench.timeScale = -actionBench.timeScale;
-    actionDoorLeft.timeScale = -actionDoorLeft.timeScale;
-    actionDoorRight.timeScale = -actionDoorRight.timeScale;
+  workbench.material.map = new THREE.TextureLoader().load('/models/materials/Wood051_1K_Color.png');
+  stonebench.material.map = new THREE.TextureLoader().load('/models/materials/Marble018_1K_Color.jpg');
+};
 
-    actionBench.paused = false;
-    actionDoorLeft.paused = false;
-    actionDoorRight.paused = false;
+/**
+ * Coloca a câmera na posição default
+ */
+document.getElementById('reset').onclick = () => {
+  camera.position.set(0, 0, 14);
+  camera.lookAt(0, 0, 0);
+};
 
-    actionBench.play();
-    actionDoorLeft.play();
-    actionDoorRight.play();
+let isContrastOn = false;
 
-    actionBench.setLoop(THREE.LoopOnce);
-    actionDoorLeft.setLoop(THREE.LoopOnce);
-    actionDoorRight.setLoop(THREE.LoopOnce);
-
-    actionBench.clampWhenFinished = true;
-    actionDoorLeft.clampWhenFinished = true;
-    actionDoorRight.clampWhenFinished = true;
-  };
-
-  document.getElementById('material').onclick = () => {
-    if (!workbench) return;
-    // if (defaultWorkbenchMaterial) return;
-    // defaultWorkbenchMaterial = workbench.material;
-
-    // if (!stonebench) return;
-    // if (defaultStonebenchMaterial) return;
-    // defaultStonebenchMaterial = stonebench.material;
-
-    toggleLights();
-
-    if (!isLightOn) {
-      workbench.material.map = new THREE.TextureLoader().load('/models/materials/Marble018_1K_Color.jpg');
-      stonebench.material.map = new THREE.TextureLoader().load('/models/materials/Wood051_1K_Color.png');
-    } else {
-      workbench.material.map = new THREE.TextureLoader().load('/models/materials/Wood051_1K_Color.png');
-      stonebench.material.map = new THREE.TextureLoader().load('/models/materials/Marble018_1K_Color.jpg');
-    }
-  };
-}
+/**
+ * Ativa/Desativa o modo de alto contraste (background claro/escuro)
+ */
+document.getElementById('contraste').onclick = () => {
+  isContrastOn = !isContrastOn;
+  if (isContrastOn) return (scene.background = new THREE.Color(0x181d1f));
+  return (scene.background = new THREE.Color(0xf3f4f6));
+};
 
 loadScene();
 addLights();
-actionButtons();
 animate();

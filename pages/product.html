@@ -815,7 +815,7 @@
               </p>
 
               <h2 class="mt-4 text-3xl font-semibold leading-7 text-gray-800 lg:text-4xl lg:leading-9 dark:text-white">
-                Mesa de Madeira
+                Mesa de jardinagem, em acácia, Wassif
               </h2>
 
               <div class="flex flex-row justify-between mt-5">
@@ -993,21 +993,40 @@
             Visualização 3D
           </h2>
           <div class="flex items-center justify-center mt-6 bg-gray-100" id="canvas"></div>
+          <span class="mt-6 font-bold text-gray-800 text-md dark:text-white">Material: </span>
+          <select
+            name="materials"
+            id="materials"
+            class="px-3 m-0 text-base font-normal text-gray-800 transition ease-in-out bg-white bg-no-repeat border border-gray-800 border-solid rounded form-select bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            style="padding: 7px 0 8px"
+          >
+            <option selected="true" value="wood">Madeira</option>
+            <option value="marble">Mármore</option>
+          </select>
           <button
             class="px-4 py-2 mt-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
             id="toggle-animation"
           >
             Abrir / Fechar
           </button>
-          <button class="px-4 py-2 mt-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" id="material">
-            Material
+          <button class="px-4 py-2 mt-4 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-700" id="luz">
+            Ligar/Desligar Luz
+          </button>
+          <button class="px-4 py-2 mt-4 font-bold text-white bg-green-500 rounded hover:bg-green-700" id="contraste">
+            Contraste de Fundo
+          </button>
+          <button
+            class="float-right px-4 py-2 mt-4 font-bold text-white bg-gray-500 rounded hover:bg-gray-700"
+            id="reset"
+          >
+            Reset
           </button>
         </div>
 
         <!-- Customers Also Purchassed -->
         <div class="bg-white">
           <div class="max-w-2xl px-4 py-2 mx-auto sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Customers also purchased</h2>
+            <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Clientes também compraram</h2>
 
             <div class="grid grid-cols-1 mt-6 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
               <div class="relative group">
