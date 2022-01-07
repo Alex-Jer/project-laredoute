@@ -794,7 +794,7 @@
                         d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                       />
                     </svg>
-                    <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                    <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800" id="bagCounter">0</span>
                     <span class="sr-only">items in cart, view bag</span>
                   </a>
                 </div>
@@ -953,6 +953,7 @@
               <button
                 class="w-full py-5 mt-6 text-base font-medium leading-4 text-white bg-gray-800 focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 lg:mt-12 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
                 onclick="location.href='#'"
+                id="addToBagBtn"
               >
                 Adicionar ao saco
               </button>
@@ -994,44 +995,67 @@
             Visualização 3D
           </h2>
           <div class="flex items-center justify-center mt-6 bg-gray-100" id="canvas"></div>
-          <span class="mt-6 font-bold text-gray-800 text-md dark:text-white">Material: </span>
-          <select
-            name="materials"
-            id="materials"
-            class="px-3 m-0 text-base font-normal text-gray-800 transition ease-in-out bg-white bg-no-repeat border border-gray-800 border-solid rounded form-select bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            style="padding: 7px 0 6px 8px"
-          >
-            <option selected="true" value="wood">Madeira</option>
-            <option value="marble">Mármore</option>
-          </select>
-          <button
-            class="inline-flex items-center px-4 py-2 mt-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
-            id="toggle-animation"
-          >
-            <img src="icons/door-closed-solid.svg" class="w-auto h-4 mr-2.5 text-white" />
-            <span> Abrir / Fechar </span>
-          </button>
-          <button
-            class="inline-flex items-center px-4 py-2 mt-4 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-700"
-            id="luz"
-          >
-            <img src="icons/lightbulb-solid.svg" class="w-auto h-4 mr-2.5 text-white" />
-            Ligar/Desligar Luz
-          </button>
-          <button
-            class="inline-flex items-center px-4 py-2 mt-4 font-bold text-white bg-green-500 rounded hover:bg-green-700"
-            id="contraste"
-          >
-            <img src="icons/moon-solid.svg" class="w-auto h-4 mr-1.5 text-white" />
-            Contraste de Fundo
-          </button>
-          <button
-            class="inline-flex items-center float-right px-4 py-2 mt-4 font-bold text-white bg-gray-500 rounded hover:bg-gray-700"
-            id="reset"
-          >
-            <img src="icons/arrow-rotate-left-solid.svg" class="w-auto h-4 mr-2.5 text-white" />
-            Reset
-          </button>
+          <div class="grid grid-cols-2 gap-1">
+            <div class="col-span-1">
+              <div class="mt-4">
+                <span class="mt-6 font-bold text-gray-800 text-md dark:text-white">Material do tampo: </span>
+                <select
+                  name="benchTopMaterial"
+                  id="benchTopMaterial"
+                  class="px-3 m-0 text-base font-normal text-gray-800 transition ease-in-out bg-white bg-no-repeat border border-gray-800 border-solid rounded form-select bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  style="padding: 7px 0 6px 8px"
+                >
+                  <option value="wood">Madeira</option>
+                  <option selected="true" value="marble">Mármore</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-span-1">
+              <button
+                class="inline-flex items-center float-right px-4 py-2 mt-4 ml-1.5 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+                id="toggle-animation"
+              >
+                <img src="icons/door-closed-solid.svg" class="w-auto h-4 mr-2.5 text-white" />
+                <span> Abrir / Fechar </span>
+              </button>
+              <button
+                class="inline-flex items-center float-right px-4 py-2 mt-4 ml-1.5 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-700"
+                id="luz"
+              >
+                <img src="icons/lightbulb-solid.svg" class="w-auto h-4 mr-2.5 text-white" />
+                Ligar/Desligar Luz
+              </button>
+              <button
+                class="inline-flex items-center float-right px-4 py-2 ml-1.5 mt-4 font-bold text-white bg-green-500 rounded hover:bg-green-700"
+                id="contraste"
+              >
+                <img src="icons/moon-solid.svg" class="w-auto h-4 mr-1.5 text-white" />
+                Contraste de Fundo
+              </button>
+            </div>
+            <div class="col-span-1">
+              <span class="mt-6 font-bold text-gray-800 text-md dark:text-white">Material da mesa: </span>
+              <select
+                name="benchMaterial"
+                id="benchMaterial"
+                class="px-3 ml-3 text-base font-normal text-gray-800 transition ease-in-out bg-white bg-no-repeat border border-gray-800 border-solid rounded form-select bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                style="padding: 7px 0 6px 8px"
+              >
+                <option selected="true" value="wood">Madeira</option>
+                <option value="marble">Mármore</option>
+              </select>
+            </div>
+            <div class="col-span-1">
+              <button
+                class="inline-flex items-center float-right px-4 py-2 font-bold text-white bg-gray-500 rounded hover:bg-gray-700"
+                id="reset"
+              >
+                <img src="icons/arrow-rotate-left-solid.svg" class="w-auto h-4 mr-1.5 text-white" />
+                Reset
+              </button>
+            </div>
+          </div>
         </div>
 
         <!-- Customers Also Purchassed -->

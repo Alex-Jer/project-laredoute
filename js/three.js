@@ -1,4 +1,5 @@
-const materialsSelect = document.getElementById('materials');
+const topMaterialSelect = document.getElementById('benchTopMaterial');
+const benchMaterialSelect = document.getElementById('benchMaterial');
 
 const canvas = document.getElementById('canvas');
 const scene = new THREE.Scene();
@@ -148,24 +149,33 @@ function toggleLights() {
 document.getElementById('luz').onclick = () => toggleLights();
 
 /**
- * Responsável por trocar a textura do tampo e da workbench
+ * Responsável por trocar a textura do tampo
  */
-materialsSelect.onchange = () => {
-  if (!workbench) return;
+topMaterialSelect.onchange = () => {
   if (!stonebench) return;
+  if (topMaterialSelect.value === 'marble') {
+    stonebench.material.map = new THREE.TextureLoader().load('/models/materials/Marble018_1K_Color.jpg');
+    return;
+  }
+  stonebench.material.map = new THREE.TextureLoader().load('/models/materials/Wood051_1K_Color.png');
+};
 
-  if (materialsSelect.value === 'marble') {
+/**
+ * Responsável por trocar a textura da workbench
+ */
+benchMaterialSelect.onchange = () => {
+  if (!workbench) return;
+
+  if (benchMaterialSelect.value === 'marble') {
     isLightOn = true;
     toggleLights();
     workbench.material.map = new THREE.TextureLoader().load('/models/materials/Marble018_1K_Color.jpg');
-    stonebench.material.map = new THREE.TextureLoader().load('/models/materials/Wood051_1K_Color.png');
     return;
   }
 
   isLightOn = false;
   toggleLights();
   workbench.material.map = new THREE.TextureLoader().load('/models/materials/Wood051_1K_Color.png');
-  stonebench.material.map = new THREE.TextureLoader().load('/models/materials/Marble018_1K_Color.jpg');
 };
 
 let isContrastOn = false;
@@ -183,7 +193,8 @@ document.getElementById('contraste').onclick = () => {
  * Coloca a câmera na posição default
  */
 document.getElementById('reset').onclick = () => {
-  materialsSelect.value = 'wood';
+  topMaterialSelect.value = 'marble';
+  benchMaterialSelect.value = 'wood';
 
   camera.position.set(0, 0, 14);
   camera.lookAt(0, 0, 0);
