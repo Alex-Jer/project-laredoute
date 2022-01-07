@@ -4,7 +4,7 @@ const benchMaterialSelect = document.getElementById('benchMaterial');
 const canvas = document.getElementById('canvas');
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(70, 1215 / 600, 0.01, 1000);
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({ antialias: true });
 const clock = new THREE.Clock();
 const mixer = new THREE.AnimationMixer(scene);
 
@@ -54,7 +54,6 @@ function loadScene() {
     actionDoorRight.timeScale = -actionDoorRight.timeScale;
 
     scene.traverse((objMesh) => {
-      // console.log(objMesh.name);
       workbench = scene.getObjectByName('workBench');
       stonebench = scene.getObjectByName('stoneBench');
       if (!objMesh.isMesh) return;
@@ -69,7 +68,6 @@ const pointLightFront = new THREE.PointLight(0xffffff, 1.5);
 const pointLightBack = new THREE.PointLight(0xffffff, 1.5);
 const pointLightRight = new THREE.PointLight(0xffffff, 1.5);
 const pointLightLeft = new THREE.PointLight(0xffffff, 1.5);
-const pointLightBelow = new THREE.PointLight(0xffffff, 1.5);
 
 /**
  * Adiciona os pontos de luz ao canvas
@@ -94,10 +92,6 @@ function addLights() {
   pointLightLeft.position.set(-28, 0, 0);
   pointLightLeft.name = 'PointLightLeft';
   scene.add(pointLightLeft);
-
-  pointLightBelow.position.set(0, -28, 0);
-  pointLightBelow.name = 'PointLightBelow';
-  scene.add(pointLightBelow);
 }
 
 let isAnimationToggled = true;
@@ -140,7 +134,6 @@ function toggleLights() {
   pointLightBack.intensity = isLightOn;
   pointLightRight.intensity = isLightOn;
   pointLightLeft.intensity = isLightOn;
-  pointLightBelow.intensity = isLightOn;
 }
 
 /**
@@ -190,7 +183,7 @@ document.getElementById('contraste').onclick = () => {
 };
 
 /**
- * Coloca a câmera na posição default
+ *  Coloca os valores de origem (câmera, textura, animações, background)
  */
 document.getElementById('reset').onclick = () => {
   topMaterialSelect.value = 'marble';
